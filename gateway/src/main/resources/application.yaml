@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: via-cep
+          uri: http://localhost:8082
+          predicates:
+            - Path=/address/**
