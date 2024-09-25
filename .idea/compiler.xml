@@ -20,11 +20,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="viacep" />
         <module name="gateway" />
+        <module name="eureka" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka" options="-parameters" />
       <module name="event-manager" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="viacep" options="-parameters" />
