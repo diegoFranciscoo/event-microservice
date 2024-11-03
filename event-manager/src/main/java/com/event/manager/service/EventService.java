@@ -31,7 +31,7 @@ public class EventService {
     }
 
     public Event findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Event does not exists"));
+        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("the event is not registered in our database"));
     }
 
     public List<Event> findAllEvents() {

@@ -2,6 +2,7 @@ package com.event.manager.service;
 
 import com.event.manager.domain.Participant;
 import com.event.manager.dto.ParticipantDTO;
+import com.event.manager.exception.ParticipantExeception.ParticipantDoesNotExistsException;
 import com.event.manager.mapper.ParticipantMapper;
 import com.event.manager.repository.ParticipantRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,10 +18,10 @@ public class ParticipantService {
     }
 
     public Participant findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Participant does not exists"));
+        return repository.findById(id).orElseThrow(() -> new ParticipantDoesNotExistsException("Participant does not exists"));
     }
 
     public Participant findByEmail(String email) {
-        return repository.findParticipantByEmail(email).orElseThrow(() -> new IllegalArgumentException("Participant does not exists"));
+        return repository.findParticipantByEmail(email).orElseThrow(() -> new ParticipantDoesNotExistsException("the participant is not registered in our database"));
     }
 }
